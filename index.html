@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel FF Premium</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}.phone { position: relative; width: 320px; background: #111; border-radius: 30px; padding: 15px; margin-top: 40px; box-shadow: 0 0 25px rgba(255,0,0,0.4); }
+
+.title{ position: sticky; top: 0; background: #111; text-align:center; font-weight:900; font-size:20px; color:red; margin-bottom:10px; display:flex; justify-content:center; align-items:center; gap:8px; text-shadow:0 0 5px red,0 0 10px red,0 0 20px red; padding:10px; z-index:999; }
+
+.title svg{ width:20px; height:20px; fill:red; filter:drop-shadow(0 0 5px red); }
+
+.section-title { background: red; padding: 10px; border-radius: 8px; margin: 10px 0; font-weight: bold; display: flex; align-items: center; gap: 8px; box-shadow: 0 0 10px red; }
+
+.item { display: flex; justify-content: space-between; align-items: center; padding: 10px 5px; border-bottom: 1px solid #333; }
+
+.switch { position: relative; width: 42px; height: 22px; }
+
+.switch input { display: none; }
+
+.slider { position: absolute; background: #555; border-radius: 20px; width: 100%; height: 100%; cursor: pointer; transition: 0.3s; }
+
+.slider:before { content: ""; position: absolute; width: 18px; height: 18px; background: white; top: 2px; left: 2px; border-radius: 50%; transition: 0.3s; }
+
+input:checked + .slider { background: red; box-shadow: 0 0 8px red; }
+
+input:checked + .slider:before { transform: translateX(20px); }
+
+.logo { width: 80px; height: 80px; background: red; margin: 20px auto 0; border-radius: 20px; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 20px red; }
+
+svg { fill: white; } .overlay{ position:fixed; top:0;left:0; width:100%;height:100%; background:rgba(0,0,0,0.85); display:flex; justify-content:center; align-items:center; animation:fadeIn 0.3s; z-index:9999; }
+
+.popup{ position:relative; z-index:10000; background:#111; padding:20px; border-radius:15px; text-align:center; box-shadow:0 0 20px red,0 0 40px red; animation:zoomIn 0.3s; }
+
+.popup h2{ color:red; margin-bottom:10px; }
+
+.popup button{ margin-top:10px; padding:8px 15px; border:none; background:red; color:white; border-radius:8px; cursor:pointer; }
+
+@keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+
+@keyframes zoomIn{ from{transform:scale(0.7);opacity:0} to{transform:scale(1);opacity:1} }
+
+</style>
+</head>
+<body><div class="phone"><div class="title">
+  <svg viewBox="0 0 24 24"><path d="M2 12l1-3 4-2 3 1 7-4 3 2-2 3-6 3-2 4-4 1z"/></svg>
+  DHANZX PANEL
+</div><div class="section-title">
+<svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm8 4a8 8 0 01-.34 2.29l2.11 1.65-2 3.46-2.49-1a8.12 8.12 0 01-1.98 1.15l-.38 2.65H9.08l-.38-2.65a8.12 8.12 0 01-1.98-1.15l-2.49 1-2-3.46 2.11-1.65A8 8 0 014 12c0-.78.11-1.53.34-2.29L2.23 8.06l2-3.46 2.49 1A8.12 8.12 0 018.7 4.45L9.08 1.8h5.84l.38 2.65a8.12 8.12 0 011.98 1.15l2.49-1 2 3.46-2.11 1.65c.23.76.34 1.51.34 2.29z"/></svg>
+Pacote Sens
+</div><div class="item">Sens Mobile<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">Sens Emulator<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">DPI Mobile<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">DPI Emulator<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">HUD Mobile<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">HUD Emulator<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div><div class="section-title">
+<svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l4 20-4-4-4 4z"/></svg>
+Mira Cruz
+</div><div class="item">Mira Normal<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">Mira Pro<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">Cores da Mira<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div>
+<div class="item">Config da Mira<label class="switch"><input type="checkbox" onchange="klik()"><span class="slider"></span></label></div><div class="section-title">
+<svg width="16" height="16" viewBox="0 0 24 24"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>
+Sensi Gacor
+</div><div class="item">Aktifkan Sensi<label class="switch"><input type="checkbox" onchange="sensi(this)"><span class="slider"></span></label></div><div class="logo">
+<svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 2l4 6h-8l4-6zm0 20c-4 0-7-3-7-7h14c0 4-3 7-7 7z"/></svg>
+</div></div><script>
+function klik(){
+  navigator.vibrate(50);
+  let audio = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+  audio.play();
+}
+
+function sensi(el){
+  klik();
+  if(el.checked){
+    showPopup();
+  }
+}
+
+function showPopup(){
+  // hapus popup lama kalau ada
+  const old = document.querySelector('.overlay');
+  if(old) old.remove();
+
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay';
+
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+
+  popup.innerHTML = `
+    <h2>🔥 SENSI GACOR AKTIF</h2>
+    <p>
+      General: 95<br>
+      Red Dot: 90<br>
+      Scope: 85<br>
+      AWM: 60
+    </p>
+    <button id="closeBtn">Tutup</button>
+  `;
+
+  overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+
+  document.getElementById('closeBtn').onclick = () => {
+    overlay.remove();
+  };
+}
+}
+
+function showPopup(){
+  const popup = document.createElement('div');
+  popup.innerHTML = `
+  <div class="overlay">
+    <div class="popup">
+      <h2>🔥 SENSI GACOR AKTIF</h2>
+      <p>General: 95<br>Red Dot: 90<br>Scope: 85<br>AWM: 60</p>
+      <button onclick="this.closest('.overlay').remove()">OK</button>
+    </div>
+  </div>
+  `;
+  document.body.appendChild(popup);
+}
+}
+</script></body>
+</html>
